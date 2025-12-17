@@ -3,7 +3,11 @@
         {
             "type": "cppbuild",
             "label": "C/C++: gcc.exe build active file",
+<<<<<<< HEAD
             "command": "C:\\TDM-GCC-64\\bin\\gcc.exe",
+=======
+            "command": "C:\\MinGW\\bin\\gcc.exe",
+>>>>>>> daftarbuku2
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
