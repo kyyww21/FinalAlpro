@@ -9,6 +9,7 @@ struct Buku {
 };
 struct Peminjaman {
     char NamaPeminjam[50];
+    char Kelas[10];
     char KodeBuku[20];
     char JudulBuku[50];
     int JumlahPinjam;
