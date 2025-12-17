@@ -1,27 +1,4 @@
-#include <stdio.h>
-#include <string.h>
 
-// Struct untuk data buku
-struct Buku {
-    char Judul[50];
-    char Kode[20];
-    int Jumlah;
-    int JumlahTotal;
-    int JumlahDipinjam;  // Ditambahkan agar perhitungan tersedia bisa dilakukan
-};
-
-// Struct untuk data peminjaman
-struct Peminjaman {
-    char NamaPeminjam[50];
-    char KodeBuku[20];
-    char JudulBuku[50];
-    int JumlahPinjam;
-};
-
-struct Buku perpustakaan[100];
-struct Peminjaman daftarPeminjaman[100];
-int totalBuku = 0;
-int totalPeminjaman = 0;
 
 void daftarBuku() {
     if (totalBuku == 0) {
@@ -42,9 +19,4 @@ void daftarBuku() {
                tersedia);
     }
     printf("===============================================================\n");
-}
-
-int main() {
-    daftarBuku();
-    return 0;
 }
