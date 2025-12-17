@@ -1,5 +1,3 @@
-
-
 void daftarBuku() {
     if (totalBuku == 0) {
         printf("\n-- Belum ada buku di perpustakaan --\n");
