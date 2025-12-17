@@ -1,5 +1,58 @@
-<<<<<<< HEAD
 #include <stdio.h>
+#include <string.h>
+
+struct Buku {
+    char Judul[50];
+    char Kode[20];
+    int Jumlah;
+    int jumlahTotal;
+};
+struct Peminjaman {
+    char NamaPeminjam[50];
+    char KodeBuku[20];
+    char JudulBuku[50];
+    int JumlahPinjam;
+};
+
+struct Buku perpustakaan[100];
+struct Peminjaman daftarPeminjaman[200];
+int totalBuku = 0;
+int totalPeminjaman = 0;
+
+void penambahanBuku() {
+    if (totalBuku >= 100) {
+        printf("Penyimpanan penuh!\n");
+        return;
+    }
+
+    printf("\n--- Tambah Buku Baru ---\n");
+    printf("Masukkan Judul Buku : ");
+    // Menggunakan scanf dengan format khusus agar bisa membaca spasi
+    scanf(" %[^\n]", perpustakaan[totalBuku].Judul);
+
+    printf("Masukkan Kode Buku  : ");
+    scanf(" %[^\n]", perpustakaan[totalBuku].Kode);
+    
+    printf("Masukkan Jumlah     : ");
+    scanf(" %d", &perpustakaan[totalBuku].Jumlah);
+
+    totalBuku++;
+    printf("\n-- Buku berhasil ditambahkan --\n");
+}
+
+void bubbleSortBuku() {
+    struct Buku temp;
+    
+    for (int i = 0; i < totalBuku - 1; i++) {
+        for (int j = 0; j < totalBuku - i - 1; j++) {
+            if (strcmp(perpustakaan[j].Judul, perpustakaan[j+1].Judul) > 0) {
+                temp = perpustakaan[j];
+                perpustakaan[j] = perpustakaan[j+1];
+                perpustakaan[j+1] = temp;
+            }
+        }
+    }
+}
 
 void menu();
 
@@ -99,80 +152,3 @@ void menu() {
 int main(){
     menu();
 }
-#include <string.h>
-struct Buku {
-    char Judul[50];
-    char Kode[20];
-    int Jumlah;
-    int jumlahTotal;
-};
-struct Peminjaman {
-    char NamaPeminjam[50];
-    char KodeBuku[20];
-    char JudulBuku[50];
-    int JumlahPinjam;
-};
-
-struct Buku perpustakaan[100];
-struct Peminjaman daftarPeminjaman[200];
-int totalBuku = 0;
-int totalPeminjaman = 0;
-
-void penambahanBuku() {
-    if (totalBuku >= 100) {
-        printf("Penyimpanan penuh!\n");
-        return;
-    }
-
-    printf("\n--- Tambah Buku Baru ---\n");
-    printf("Masukkan Judul Buku : ");
-    // Menggunakan scanf dengan format khusus agar bisa membaca spasi
-    scanf(" %[^\n]", perpustakaan[totalBuku].Judul);
-
-    printf("Masukkan Kode Buku  : ");
-    scanf(" %[^\n]", perpustakaan[totalBuku].Kode);
-    
-    printf("Masukkan Jumlah     : ");
-    scanf(" %d", &perpustakaan[totalBuku].Jumlah);
-
-    totalBuku++;
-    printf("\n-- Buku berhasil ditambahkan --\n");
-}
-
-void bubbleSortBuku() {
-    struct Buku temp;
-    
-    for (int i = 0; i < totalBuku - 1; i++) {
-        for (int j = 0; j < totalBuku - i - 1; j++) {
-            if (strcmp(perpustakaan[j].Judul, perpustakaan[j+1].Judul) > 0) {
-                temp = perpustakaan[j];
-                perpustakaan[j] = perpustakaan[j+1];
-                perpustakaan[j+1] = temp;
-            }
-        }
-    }
-}
-=======
-
-
-void daftarBuku() {
-    if (totalBuku == 0) {
-        printf("\n-- Belum ada buku di perpustakaan --\n");
-    }
-    
-    printf("\n=== DAFTAR SEMUA BUKU ===\n");
-    printf("%-30s %-15s %-8s %-10s %-10s\n", "Judul", "Kode", "Total", "Dipinjam", "Tersedia");  // Printf -> printf
-    printf("---------------------------------------------------------------\n");
-
-    for (int i = 0; i < totalBuku; i++) {
-        int tersedia = perpustakaan[i].JumlahTotal - perpustakaan[i].JumlahDipinjam;  // Perpustakaan -> perpustakaan, tambah ;
-        printf("%-30s %-15s %-8d %-10d %-10d\n",  // Tambah tanda kutip "
-               perpustakaan[i].Judul,              // Perpustakaan -> perpustakaan
-               perpustakaan[i].Kode,               // Perpustakaan -> perpustakaan
-               perpustakaan[i].JumlahTotal,        // Perpustakaan -> perpustakaan
-               perpustakaan[i].JumlahDipinjam,     // daftarPeminjaman -> perpustakaan
-               tersedia);
-    }
-    printf("===============================================================\n");
-}
->>>>>>> daftarbuku2
