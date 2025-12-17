@@ -1,63 +1,47 @@
 #include <stdio.h>
+#include <string.h>
 
-void statusBuku(){
-    #include <stdio.h>
-    #include <string.h>
+int totalBuku = 0;
 
-    struct Buku {
-        char kode[20];
-        char judul[50];
-        
-    struct Buku database[200];
-    int totalBuku = 0;
+struct Buku {
+    char Judul[100];
+    char Kode[20];
+    int JumlahTotal;
+    int JumlahDipinjam;
+};
 
-    void tambahBuku() {
-        printf("Daftar Buku:\n");
+struct Buku perpustakaan[100];
 
-        if (totalBuku == 0) {
-            printf("Tidak ada buku dalam database.\n");
+void statusBuku() {
 
-            return;
-        }
-
-        for (int i = 0; i < jumlahBuku; i++) {
-            printf("Kode: %s, Judul: %s, Kelas: %s, Mapel: %s\n",
-                   database[i].kode,
-                   database[i].judul
-                   database[i].kelas,
-                   database[i].mapel;
-            );
-        }
-    }
-    void tambahBuku(){
-        printf(" \n=== Tambah Buku ===\n");
-        printf("Masukkan kode buku: ");
-        scanf("%s", database[jumlahBuku].kode);
-
-        printf("Masukkan judul buku: ");
-        scanf("%s", database[jumlahBuku].judul);
-
-        printf("Masukkan kelas: ");
-        scanf("%s", database[jumlahBuku].kelas);
-
-        printf("Masukan mapel: ");
-        scanf("%s", database[jumlahBuku].mapel);
-
-        jumlahBuku++;
-        printf("Buku berhasil ditambahkan!\n");
-
-
-        
-
+    if (totalBuku == 0) {
+        printf("\n-- Belum ada buku yang tersimpan --\n");
+        return;
     }
 
-    {
-        /* data */
-    };
-    
-}
-int main(){
-    statusBuku();
-    return 0; 
+    printf("\n=========== STATUS SEMUA BUKU ===========\n");
+    printf("%-30s %-10s %-8s %-10s %-10s %-15s\n",
+           "Judul", "Kode", "Total", "Dipinjam", "Tersedia", "Status");
+    printf("-----------------------------------------------------------------------------\n");
 
+    for (int i = 0; i < totalBuku; i++) {
+
+        int tersedia = perpustakaan[i].JumlahTotal
+                     - perpustakaan[i].JumlahDipinjam;
+
+        char status[20];
+
+        if (tersedia > 0)
+            strcpy(status, "Tersedia");
+        else
+            strcpy(status, "Habis");
+
+        printf("%-30s %-10s %-8d %-10d %-10d %-15s\n",
+               perpustakaan[i].Judul,
+               perpustakaan[i].Kode,
+               perpustakaan[i].JumlahTotal,
+               perpustakaan[i].JumlahDipinjam,
+                tersedia,
+               status);
+    }
 }
