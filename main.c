@@ -52,8 +52,3 @@ void bubbleSortBuku() {
         }
     }
 }
-
-int main(){
-    penambahanBuku();
-    bubbleSortBuku();
-}
