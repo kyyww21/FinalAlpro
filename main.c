@@ -1,13 +1,22 @@
 #include <stdio.h>
 #include <string.h>
-struct Buku
-{
-    char Judul[20];
+struct Buku {
+    char Judul[50];
     char Kode[20];
     int Jumlah;
+    int jumlahTotal;
 };
+struct Peminjaman {
+    char NamaPeminjam[50];
+    char KodeBuku[20];
+    char JudulBuku[50];
+    int JumlahPinjam;
+};
+
 struct Buku perpustakaan[100];
+struct Peminjaman daftarPeminjaman[200];
 int totalBuku = 0;
+int totalPeminjaman = 0;
 
 void penambahanBuku() {
     if (totalBuku >= 100) {
@@ -42,4 +51,9 @@ void bubbleSortBuku() {
             }
         }
     }
+}
+
+int main(){
+    penambahanBuku();
+    bubbleSortBuku();
 }
