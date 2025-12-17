@@ -149,7 +149,7 @@ void selesaiPerubahan() {
 
 void subMenu1() {
     int subOpsi1;
-    printf("\n===OPSI===\n1. Penambahan Buku\n2. Penghapusan Buku\n3. Status Buku\n4. Daftar Buku\n5. Kembali\n6. Selesai\nMasukkan Opsi Anda : ");
+    printf("\n===OPSI===\n1. Penambahan Buku\n2. Penghapusan Buku\n3. Daftar Peminjam Buku\n4. Daftar Buku\n5. Kembali\n6. Selesai\nMasukkan Opsi Anda : ");
     scanf("%d", &subOpsi1);
 
         switch(subOpsi1) {
@@ -162,11 +162,9 @@ void subMenu1() {
                 subMenu1();
                 break;
             case 3:
-                selesaiPerubahan();
                 subMenu1();
                 break;
             case 4:
-                selesaiPerubahan();
                 subMenu1();
                 break;
             case 5:
@@ -184,7 +182,7 @@ void subMenu1() {
 
 void subMenu2() {
     int subOpsi2;
-    printf("\n===OPSI===\n1. Peminjaman Buku2. Pengembalian Buku\n3. Kembali\n4. Selesai\nMasukkan Opsi Anda : ");
+    printf("\n===OPSI===\n1. Peminjaman Buku\n2. Pengembalian Buku\n3. Kembali\n4. Selesai\nMasukkan Opsi Anda : ");
     scanf("%d", &subOpsi2);
 
         switch(subOpsi2) {
