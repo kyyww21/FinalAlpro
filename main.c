@@ -2,7 +2,6 @@ void daftarBuku() {
     if (totalBuku == 0) {
         printf("\n-- Belum ada buku di perpustakaan --\n");
     }
-    
     printf("\n=== DAFTAR SEMUA BUKU ===\n");
     printf("%-30s %-15s %-8s %-10s %-10s\n", "Judul", "Kode", "Total", "Dipinjam", "Tersedia");  // Printf -> printf
     printf("---------------------------------------------------------------\n");
